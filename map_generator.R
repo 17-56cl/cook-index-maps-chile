@@ -1,5 +1,3 @@
-setwd("C:/Users/Gonzalo/Dropbox/Super Data Projects/GitHub/cook-index-maps-chile")
-
 #Shapefiles
 library(ggplot2)
 library(plotly)
