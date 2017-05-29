@@ -1,6 +1,8 @@
 #Shapefiles
 library(ggplot2)
 library(plotly)
+library(sp)
+library(maptools)
 
 filename="1756Shp/division_comunal_1756-2.shp"
 geodata=readShapeSpatial(filename)
@@ -91,7 +93,7 @@ map10y14 <- ggplot(data = shapefile_df_10y14id, aes(x = long, y = lat, group = g
 		ggtitle("Índice de Cook de predominancia política \nRegiones X y XIV - Distritos Electorales")+
 		opt1+opt2+opt3+opt4
 
-#####Regiones 11 y 12:
+#####Regiones 11 y 12: ##warning, this map is insanely heavy.
 subgeodata_11y12=geodata[which(geodata$NOM_REG == "Región de Aysén del Gral.Ibañez del Campo"|geodata$NOM_REG == "Región de Magallanes y Antártica Chilena"),]
 subgeodata_11y12@data$id <- rownames(subgeodata_11y12@data)
 shapefile_df_11y12 <- fortify(subgeodata_11y12,region="id")
@@ -123,7 +125,7 @@ mapa15y1i <- ggplotly(map15y1)
 mapa6y7i <- ggplotly(map6y7) 
 map13i <- ggplotly(map13)
 mapaSTGOi <- ggplotly(mapSTGO)
-mapa11y12i <- ggplotly(map11y12)
+mapa11y12i <- ggplotly(map11y12) ##warning, this map is insanely heavy.
 mapa10y14i <- ggplotly(map10y14)
 mapa4y5i <- ggplotly(map4y5)
 mapa2y3i <- ggplotly(map2y3)
